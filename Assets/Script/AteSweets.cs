@@ -17,6 +17,7 @@ public class AteSweets : MonoBehaviour
         //合ってたら
         if(other.gameObject.tag == spoonOrFork.ToString())
         {
+            other.gameObject.transform.Find("ParticlesMaster").GetComponent<ParticlesManager>().CallParticle(addValue, spoonOrFork);//パーティクル用の受け渡し
             other.SendMessage("EatRightSweet", addValue);
             Destroy(this.gameObject);
         }
