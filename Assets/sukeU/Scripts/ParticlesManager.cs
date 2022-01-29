@@ -13,8 +13,8 @@ public class ParticlesManager : MonoBehaviour
         {
             gameObject.transform.parent = GameObject.Find("Player").gameObject.transform;
             gameObject.transform.position = new Vector3(gameObject.transform.parent.transform.position.x,
-                gameObject.transform.parent.transform.position.y,
-                gameObject.transform.parent.transform.position.z+1.0f);
+            gameObject.transform.parent.transform.position.y,
+            gameObject.transform.parent.transform.position.z+1.0f);
 
         }
         catch (System.Exception)
@@ -49,12 +49,9 @@ public class ParticlesManager : MonoBehaviour
                 case 5: eat(2,3); break;
                 case 6: eat(1,2); break;
                 case 10: eat(1, 2); break;
-
             }
         }
-       
     }
-    
     public void eat(int c)//eatのスクリプトに色を受け渡す //0黒 1茶 2黄 3赤 4白 5緑
     {
         particle[0].GetComponent<colorChanger>().ChangeColor(c);
@@ -66,6 +63,8 @@ public class ParticlesManager : MonoBehaviour
         particle[0].GetComponent<colorChanger>().ChangeColor(c); particle[0].Play();
         particle[1].GetComponent<colorChanger>().ChangeColor(c2); particle[1].Play();
     }
+    public void clearParticle(int t)
+    {
 
-
+    }
 }
