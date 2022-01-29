@@ -75,11 +75,18 @@ public class EatPlayer : MonoBehaviour
     }
 
     //間違えたもので食べた時に呼ばれる
-    void EatWrongSweet(int fibSatiety)
+    void EatWrongSweetFork(int fibSatiety)
     {
         //仮で減らしてる。
         satietyVal -= fibSatiety;
-        myObj.SendMessage("EatWrongSweetSE");
+        myObj.SendMessage("EatWrongSweetForkSE");
+
+    }
+    void EatWrongSweetSpoon(int fibSatiety)
+    {
+        //仮で減らしてる。
+        satietyVal -= fibSatiety;
+        myObj.SendMessage("EatWrongSweetSpoonSE");
 
     }
 
