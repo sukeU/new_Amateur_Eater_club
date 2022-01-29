@@ -16,8 +16,6 @@ public class ChangeSpoonOrFork : MonoBehaviour
 
     void Update()
     {
-        //今トリガーが勝手に入って反転することがある。
-
         //チェンジアニメーション中なら入力無視
         if (changeNow) return;
 
