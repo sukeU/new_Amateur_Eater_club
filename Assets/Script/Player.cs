@@ -6,21 +6,33 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     public float speed = 1.0f;
+
+
+
+    Animator animator;
+
     public float Movespeed;
 
     GameObject myObj;
+
 
 
     //ゲームが終わってるか終わってないか
     bool gameMasFinishBool;
     private Rigidbody rb;
 
+    
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         gameMasFinishBool = GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish;
+
+        animator = this.gameObject.GetComponent<Animator>();
+
+
         myObj = GameObject.Find("Player").gameObject;
+
     }
 
     void Update()
@@ -50,9 +62,16 @@ public class Player : MonoBehaviour
         if (other.tag == ("Goal"))
         {
             //PlayerのRigidbodyを停止
-            rb.constraints = RigidbodyConstraints.FreezePositionX;
-            rb.constraints = RigidbodyConstraints.FreezePositionZ;
+
+            
+            rb.constraints = RigidbodyConstraints.FreezePosition;
+            
+            //ゴールアニメーション再生
+            animator.SetTrigger("Goal");
+
+            
             myObj.SendMessage("SW_Weapons_Spoon");
+
         }
     }
 }
