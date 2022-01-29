@@ -17,16 +17,30 @@ public class EatPlayer : MonoBehaviour
     Slider slider;
     AdjustmentValue adjValScr;
 
+    //Audioの設定値
+    AudioSource audioSource;
+    AudioClip trueSweetsSE;
+    AudioClip falseSweetsSE;
+    AudioClip switchWeaponsSpoon;
+    AudioClip switchWeaponsFolk;
+
     void Start()
     {
         gameMas = GameObject.Find("GameMaster").gameObject;
-        adjValScr = gameMas.GetComponent<AdjustmentValue>();
+        adjValScr = gameMas.GetComponent<AdjustmentValue>();    //設定値クラス読み込み
         //初期値
         satietyVal = adjValScr.startSatiety;
         delayDecreaseSatietyTime = adjValScr.delayDecreaseSatietyTime;
 
-        slider = GameObject.Find("Canvas/SatietySlider").GetComponent<Slider>();
-        slider.maxValue = adjValScr.maxSatiety;
+        slider = GameObject.Find("Canvas/SatietySlider").GetComponent<Slider>();    //スライダーを取得
+        slider.maxValue = adjValScr.maxSatiety; //スライダーの初期値設定
+
+        //Audio設定
+        audioSource = GetComponent<AudioSource>();
+        trueSweetsSE = adjValScr.trueSweetsSE;
+        falseSweetsSE = adjValScr.falseSweetsSE;
+        switchWeaponsSpoon = adjValScr.switchWeaponsSpoon;
+        switchWeaponsFolk = adjValScr.switchWeaponsFolk;
     }
 
     void Update()
@@ -61,6 +75,7 @@ public class EatPlayer : MonoBehaviour
     {
         satietyVal += fibSatiety;
         nowTime = delayDecreaseSatietyTime; //食べてからの時間をリセット
+        audioSource.PlayOneShot(trueSweetsSE);
         
     }
 
@@ -69,6 +84,17 @@ public class EatPlayer : MonoBehaviour
     {
         //仮で減らしてる。
         satietyVal -= fibSatiety;
-        
+        audioSource.PlayOneShot(falseSweetsSE);
+
+    }
+
+    void SW_Weapons_Spoon()
+    {
+        audioSource.PlayOneShot(switchWeaponsSpoon);
+    }
+
+    void SW_Weapons_Folk()
+    {
+        audioSource.PlayOneShot(switchWeaponsFolk);
     }
 }
