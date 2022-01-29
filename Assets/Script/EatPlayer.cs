@@ -14,6 +14,9 @@ public class EatPlayer : MonoBehaviour
     GameObject gameMas;
     GameObject myObj;   //自身のオブジェクト
 
+    //間違えて食べた時にどのくらいの割合で減るか
+    public float discreRatio = 0.5f;
+
     //仮のスライダー
     Slider slider;
     AdjustmentValue adjValScr;
@@ -77,10 +80,9 @@ public class EatPlayer : MonoBehaviour
     //間違えたもので食べた時に呼ばれる
     void EatWrongSweet(int fibSatiety)
     {
-        //仮で減らしてる。
-        satietyVal -= fibSatiety;
+        //Inspectorで指定された割合の満腹度を減らしてる。
+        satietyVal -= (int)((float)(fibSatiety) * discreRatio);
         myObj.SendMessage("EatWrongSweetSE");
-
     }
 
 }
