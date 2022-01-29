@@ -9,13 +9,13 @@ public class ParticlesManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
         try
         {
             gameObject.transform.parent = GameObject.Find("Player").gameObject.transform;
             gameObject.transform.position = new Vector3(gameObject.transform.parent.transform.position.x,
             gameObject.transform.parent.transform.position.y,
             gameObject.transform.parent.transform.position.z+1.0f);
-
         }
         catch (System.Exception)
         {
@@ -65,6 +65,11 @@ public class ParticlesManager : MonoBehaviour
     }
     public void clearParticle(int t)
     {
-
+        //if(怒って終了)
+        // particle[3].Play();
+        //else if(ノーマル)
+        //particle[4].Play();
+        //else ()
+        //particle[5].Play();
     }
 }
