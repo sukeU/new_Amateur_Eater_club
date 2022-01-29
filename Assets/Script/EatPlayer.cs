@@ -83,7 +83,15 @@ public class EatPlayer : MonoBehaviour
 
         //Inspectorで指定された割合の満腹度を減らしてる。
         satietyVal -= (int)((float)(fibSatiety) * discreRatio);
-        myObj.SendMessage("EatWrongSweetSE");
+        myObj.SendMessage("EatWrongSweetForkSE");
+
+    }
+    void EatWrongSweetSpoon(int fibSatiety)
+    {
+
+        //Inspectorで指定された割合の満腹度を減らしてる。
+        satietyVal -= (int)((float)(fibSatiety) * discreRatio);
+        myObj.SendMessage("EatWrongSweetSpoonSE");
 
     }
 
