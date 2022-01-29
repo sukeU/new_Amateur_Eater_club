@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 mouseDelta = Mouse.current.delta.ReadValue();
         Rigidbody rb = this.GetComponent<Rigidbody>();
-        Vector3 force = new Vector3(1.0f, 0.0f, 0.0f);
+        Vector3 force = new Vector3(1.0f, 0.0f, 5.0f);
         rb.AddForce(mouseDelta * Movespeed);
 
 
