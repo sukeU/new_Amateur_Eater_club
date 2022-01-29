@@ -35,7 +35,7 @@ public class ChangeSpoonOrFork : MonoBehaviour
             {
                 this.gameObject.tag = spoon;
                 anim.SetTrigger(spoon);
-                myObj.SendMessage("SW_Weapons_Folk");
+                myObj.SendMessage("SW_Weapons_Fork");
                 changeNow = true;
                 return;
             }

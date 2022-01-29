@@ -6,21 +6,33 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     public float speed = 1.0f;
+    public float x_input = 1.0f;
+
+
+    Animator animator;
+
     public float Movespeed;
 
     GameObject myObj;
+
 
 
     //ゲームが終わってるか終わってないか
     bool gameMasFinishBool;
     private Rigidbody rb;
 
+    
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         gameMasFinishBool = GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish;
+
+        animator = this.gameObject.GetComponent<Animator>();
+
+
         myObj = GameObject.Find("Player").gameObject;
+
     }
 
     void Update()
@@ -30,17 +42,33 @@ public class Player : MonoBehaviour
         gameMasFinishBool = GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish;
         if (gameMasFinishBool) return;
 
-        //マウスのデルタ値を取得
-        Vector3 mouseDelta = Mouse.current.delta.ReadValue();
+        //自身のrigidbodyを取得
         Rigidbody rb = this.GetComponent<Rigidbody>();
         rb.velocity = Vector3.zero;     //rbを初期化（無いと飛んでいく）
-        float xSpeed = mouseDelta.x ;
+        float x_pos = Input.mousePosition.x;
+        float xVec = 0.0f;
         
+        if (x_pos <= Screen.width / 3)
+        {
+            float pom = x_pos / (Screen.width / 3) - 1; //X領域の割合を計算、100％で掛ける
+            if (pom <= -1.0f) pom = -1.0f;    //100%を超えたら1に固定
+            xVec = x_input * pom;           //入力するベクトルに割合をかける
+            //Debug.Log("←←←←←←←"+(x_pos/(Screen.width / 3)-1)+"  xVec:"+xVec);
+        }
+        else if(x_pos >= Screen.width / 3 * 2)
+        {
+            float pom = (x_pos - Screen.width / 3 * 2) / Screen.width / 3 * 10 - 0.1f;
+            if (pom >= 1.0f) pom = 1.0f;//100%を超えたら
+            xVec = x_input * pom;
+            //Debug.Log("→→→→→→→→→→" + ((x_pos - Screen.width / 3 * 2) / Screen.width / 3*10) + " xVec:" + xVec);
+        }
+
+
 
         //指定したスピードから現在の速度を引いて加速力を求める
         float currentSpeed = speed - rb.velocity.magnitude;
         //調整された加速力で力を加える
-        rb.AddForce(new Vector3(xSpeed, 0, currentSpeed));
+        rb.AddForce(new Vector3(xVec, 0, currentSpeed));
         
 
     }
@@ -49,10 +77,12 @@ public class Player : MonoBehaviour
     {
         if (other.tag == ("Goal"))
         {
-            //PlayerのRigidbodyを停止
-            rb.constraints = RigidbodyConstraints.FreezePositionX;
-            rb.constraints = RigidbodyConstraints.FreezePositionZ;
+            rb.constraints = RigidbodyConstraints.FreezePosition;
+            
+            //ゴールアニメーション再生
+            animator.SetTrigger("Goal");
             myObj.SendMessage("SW_Weapons_Spoon");
+
         }
     }
 }

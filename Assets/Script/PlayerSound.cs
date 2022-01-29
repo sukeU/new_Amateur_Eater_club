@@ -10,9 +10,10 @@ public class PlayerSound : MonoBehaviour
     //Audioの設定値
     AudioSource audioSource;
     AudioClip trueSweetsSE;
-    AudioClip falseSweetsSE;
+    AudioClip falseSweetsForkSE;
+    AudioClip falseSweetsSpoonSE;
     AudioClip switchWeaponsSpoon;
-    AudioClip switchWeaponsFolk;
+    AudioClip switchWeaponsFork;
 
     public float test1 = 0.0f;
 
@@ -25,9 +26,10 @@ public class PlayerSound : MonoBehaviour
         //Audio設定
         audioSource = GetComponent<AudioSource>();
         trueSweetsSE = adjValScr.trueSweetsSE;
-        falseSweetsSE = adjValScr.falseSweetsSE;
+        falseSweetsForkSE = adjValScr.falseSweetsForkSE;
+        falseSweetsSpoonSE = adjValScr.falseSweetsSpoonSE;
         switchWeaponsSpoon = adjValScr.switchWeaponsSpoon;
-        switchWeaponsFolk = adjValScr.switchWeaponsFolk;
+        switchWeaponsFork = adjValScr.switchWeaponsFork;
         test1 = switchWeaponsSpoon.length;
     }
 
@@ -36,23 +38,27 @@ public class PlayerSound : MonoBehaviour
     {
         
     }
+    //スイーツを正しく食べた時
     void EatRightSweetSE()
     {
+        audioSource.PlayOneShot(trueSweetsSE);
+    }
+    void EatWrongSweetForkSE()//間違えてForkでとってしまったとき
+    {
+        audioSource.PlayOneShot(falseSweetsForkSE);
+    }
+    void EatWrongSweetSpoonSE()//間違えてSpoonでとってしまったとき
+    {
+        audioSource.PlayOneShot(falseSweetsSpoonSE);
+    }
+    void SW_Weapons_Spoon()//Spoonへ切り替え
+    {
         audioSource.PlayOneShot(switchWeaponsSpoon);
     }
-    void EatWrongSweetSE()
-    {
-        audioSource.PlayOneShot(switchWeaponsFolk);
-    }
 
-    void SW_Weapons_Spoon()
+    void SW_Weapons_Fork()//Forkへ切り替え
     {
-        audioSource.PlayOneShot(switchWeaponsSpoon);
-    }
-
-    void SW_Weapons_Folk()
-    {
-        audioSource.PlayOneShot(switchWeaponsFolk);
+        audioSource.PlayOneShot(switchWeaponsFork);
     }
     
 }
