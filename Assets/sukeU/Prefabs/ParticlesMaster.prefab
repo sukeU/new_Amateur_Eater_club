@@ -147,6 +147,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Particle_star
       objectReference: {fileID: 0}
+    - target: {fileID: 6653645655990285571, guid: a88ac4b40241aae43ae2d5e6365a110f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: caedadaab07574e49b944820223dfd5a, type: 2}
     - target: {fileID: 8906735191983097359, guid: a88ac4b40241aae43ae2d5e6365a110f,
         type: 3}
       propertyPath: m_RootOrder
@@ -384,6 +389,11 @@ PrefabInstance:
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3272017639456762223, guid: a456a1c9131cd164aa49db79ee1c6657,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d9141f62fcdd9c24e8ac1a09d0f602bc, type: 2}
     - target: {fileID: 6971773321263013999, guid: a456a1c9131cd164aa49db79ee1c6657,
         type: 3}
       propertyPath: m_RootOrder
