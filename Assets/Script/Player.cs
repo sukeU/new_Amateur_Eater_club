@@ -68,8 +68,8 @@ public class Player : MonoBehaviour
         //指定したスピードから現在の速度を引いて加速力を求める
         float currentSpeed = speed - rb.velocity.magnitude;
         //調整された加速力で力を加える
-        rb.AddForce(new Vector3(xVec*Time.deltaTime, 0, currentSpeed*Time.deltaTime));
-        
+        //rb.AddForce(new Vector3(xVec*Time.deltaTime, 0, currentSpeed*Time.deltaTime));    //rigidbodyで加算処理
+        this.gameObject.transform.position += (new Vector3(xVec * Time.deltaTime, 0, currentSpeed * Time.deltaTime));   //transformで加算処理
 
     }
 
