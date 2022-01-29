@@ -24,7 +24,15 @@ public class AteSweets : MonoBehaviour
         //間違ってたら
         else
         {
-            other.SendMessage("EatWrongSweet", addValue);
+            if("Fork" == spoonOrFork.ToString())
+            {
+                other.SendMessage("EatWrongSweetFork", addValue);
+            }
+            else
+            {
+                other.SendMessage("EatWrongSweetSpoon", addValue);
+            }
+            
         }
     }
 }
