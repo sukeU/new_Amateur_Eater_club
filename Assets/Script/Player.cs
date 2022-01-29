@@ -6,19 +6,21 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     public float speed = 1.0f;
-    public float Movespeed;
-   
-   
+
+
+    Animator animator;
 
     //ゲームが終わってるか終わってないか
     bool gameMasFinishBool;
     private Rigidbody rb;
 
+    
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         gameMasFinishBool = GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish;
+        animator = GetComponent<Animator>();
         
     }
 
@@ -46,8 +48,11 @@ public class Player : MonoBehaviour
         if (other.tag == ("Goal"))
         {
             //PlayerのRigidbodyを停止
-            rb.constraints = RigidbodyConstraints.FreezePositionX;
-            rb.constraints = RigidbodyConstraints.FreezePositionZ;
+            
+            rb.constraints = RigidbodyConstraints.FreezePosition;
+            
+
+            animator.Play("");
         }
     }
 }
