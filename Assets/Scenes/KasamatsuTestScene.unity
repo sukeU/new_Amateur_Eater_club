@@ -1394,6 +1394,7 @@ GameObject:
   - component: {fileID: 1521469330}
   - component: {fileID: 1521469332}
   - component: {fileID: 1521469333}
+  - component: {fileID: 1521469334}
   m_Layer: 0
   m_Name: Player
   m_TagString: Spoon
@@ -1426,7 +1427,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c91e1e76e13c94987d4046913552c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 56.75
+  Movespeed: 0
 --- !u!54 &1521469328
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1601,6 +1603,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1521469334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521469325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c706056283012243b80db091010784e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  test1: 0
 --- !u!1 &1597738969
 GameObject:
   m_ObjectHideFlags: 0
