@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3066713226627859027}
   - component: {fileID: 4000163349553865935}
   m_Layer: 0
-  m_Name: Particle_smile
+  m_Name: Particle_good
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1142,7 +1142,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   RotationModule:
-    enabled: 1
+    enabled: 0
     x:
       serializedVersion: 2
       minMaxState: 3
@@ -3896,7 +3896,7 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
-    mode: 0
+    mode: 1
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -4727,7 +4727,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: abf53a3f2e245e0419b497966903d5f3, type: 2}
+  - {fileID: 2100000, guid: 959f5f5ac8d3bbf4ab9a506e768dc48d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
