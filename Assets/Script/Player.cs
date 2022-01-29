@@ -19,18 +19,26 @@ public class Player : MonoBehaviour
     bool gameMasFinishBool;
     private Rigidbody rb;
 
-    
+    public int ItemCount;
+
+    public GameObject best_text;
+    public GameObject gg_text;
+    public GameObject w_text;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = this.gameObject.GetComponent<Animator>();
         gameMasFinishBool = GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish;
 
-        animator = this.gameObject.GetComponent<Animator>();
+        
 
         GoalSE = GameObject.Find("GameMaster").GetComponent<AdjustmentValue>().gameClearBGM;
         myObj = GameObject.Find("Player").gameObject;
 
+        best_text.SetActive(false);
+        gg_text.SetActive(false);
+        w_text.SetActive(false);
     }
 
     void Update()
@@ -59,10 +67,16 @@ public class Player : MonoBehaviour
     {
         if (other.tag == ("Goal"))
         {
-            //PlayerのRigidbodyを停止
+            //Result画像表示
+            if (ItemCount >= 21) best_text.SetActive(true);
+            if ((ItemCount >= 12) && (ItemCount < 21)) gg_text.SetActive(true);
+            if ((ItemCount >= 0) && (ItemCount < 12)) w_text.SetActive(true);
 
-            
-            rb.constraints = RigidbodyConstraints.FreezePosition;
+            //PlayerのRigidbodyを停止
+            rb.constraints = RigidbodyConstraints.FreezePositionX |
+                             RigidbodyConstraints.FreezePositionZ |
+                             RigidbodyConstraints.FreezeRotationY |
+                             RigidbodyConstraints.FreezeRotationZ;
             
             //ゴールアニメーション再生
             animator.SetTrigger("Goal");
@@ -71,5 +85,12 @@ public class Player : MonoBehaviour
             myObj.SendMessage("SW_Weapons_Spoon");
 
         }
+
+        if (other.tag == ("Item"))
+        {
+            ItemCount++;
+        }
+       
     }
+   
 }
