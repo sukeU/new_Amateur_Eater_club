@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class GoalManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Rigidbody Playerrb;
+    
+
     void Start()
     {
-        
+        Playerrb = GameObject.Find("Player").GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+     if (other.tag == ("Player"))
+        {
+            Debug.Log("hoge");
+            //PlayerのRigidbodyを停止
+            Playerrb.velocity = Vector3.zero;
+        }
     }
 }

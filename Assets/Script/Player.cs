@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         gameMasFinishBool = GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish;
+        
     }
 
     void Update()
@@ -38,5 +39,15 @@ public class Player : MonoBehaviour
         rb.AddForce(new Vector3(xSpeed, 0, currentSpeed));
         
 
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == ("Goal"))
+        {
+            //PlayerのRigidbodyを停止
+            rb.constraints = RigidbodyConstraints.FreezePositionX;
+            rb.constraints = RigidbodyConstraints.FreezePositionZ;
+        }
     }
 }
