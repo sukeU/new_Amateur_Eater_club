@@ -6,4 +6,5 @@ public class AdjustmentValue : MonoBehaviour
 {
     public int maxSatiety = 50;
     public int startSatiety = 25;
+    public float delayDecreaseSatietyTime = 2.0f;
 }
