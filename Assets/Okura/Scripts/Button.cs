@@ -10,8 +10,9 @@ public class Button: MonoBehaviour
         // ボタンごとに分岐
         if ("Play".Equals(objectname)) this.PlayClick();
         else if ("Option".Equals(objectname)) this.OptionClick();
-        else if ("Credit".Equals(objectname)) this.CreditClick();
+        else if ("credit".Equals(objectname)) this.creditClick();
         else if ("Exit".Equals(objectname)) this.ExitClick();
+        else if ("Return".Equals(objectname)) this.ReturnClick();
     }
 
     void PlayClick()
@@ -26,10 +27,10 @@ public class Button: MonoBehaviour
         SceneManager.LoadScene("Option");
     }
 
-    void CreditClick()
+    void creditClick()
     {
         //Creditに遷移
-        SceneManager.LoadScene("Credit");
+        SceneManager.LoadScene("credit");
     }
 
     void ExitClick()
@@ -37,5 +38,11 @@ public class Button: MonoBehaviour
         //ゲームをやめる
         UnityEditor.EditorApplication.isPlaying = false;
         UnityEngine.Application.Quit();
+    }
+
+    void ReturnClick()
+    {
+        //Titleに遷移
+        SceneManager.LoadScene("Title");
     }
 }
