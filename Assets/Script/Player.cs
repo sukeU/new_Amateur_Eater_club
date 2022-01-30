@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
 
     GameObject myObj;
 
-    AudioClip SE;
+    AudioClip goalClip;
     AudioSource GoalSE;
 
     //ゲームが終わってるか終わってないか
@@ -36,8 +36,8 @@ public class Player : MonoBehaviour
         animator = this.gameObject.GetComponent<Animator>();
         gameMasFinishBool = GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish;
 
-        SE = GameObject.Find("GameMaster").GetComponent<AdjustmentValue>().gameClearBGM;
-        GoalSE.clip = SE;
+        goalClip = GameObject.Find("GameMaster").GetComponent<AdjustmentValue>().gameClearBGM;
+        GoalSE.clip = goalClip;
 
         myObj = GameObject.Find("Player").gameObject;
 
