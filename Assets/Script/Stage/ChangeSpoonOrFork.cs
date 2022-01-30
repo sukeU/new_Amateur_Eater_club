@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChangeSpoonOrFork : MonoBehaviour
 {
+    public bool pauseNow = false;
     public bool changeNow = false;
     string spoon = "Spoon";
     string fork = "Fork";
@@ -19,7 +20,7 @@ public class ChangeSpoonOrFork : MonoBehaviour
     void Update()
     {
         //チェンジアニメーション中なら入力無視
-        if (changeNow) return;
+        if (changeNow || pauseNow) return;
 
         if (Input.GetMouseButtonDown(0))
         {

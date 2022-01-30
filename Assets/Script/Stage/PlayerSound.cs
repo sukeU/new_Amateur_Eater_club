@@ -14,6 +14,7 @@ public class PlayerSound : MonoBehaviour
     AudioClip falseSweetsSpoonSE;
     AudioClip switchWeaponsSpoon;
     AudioClip switchWeaponsFork;
+    AudioClip goalWhistleSE;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class PlayerSound : MonoBehaviour
         falseSweetsSpoonSE = adjValScr.falseSweetsSpoonSE;
         switchWeaponsSpoon = adjValScr.switchWeaponsSpoon;
         switchWeaponsFork = adjValScr.switchWeaponsFork;
+        goalWhistleSE = adjValScr.goalWhistleSE;
     }
 
     // Update is called once per frame
@@ -58,4 +60,9 @@ public class PlayerSound : MonoBehaviour
         audioSource.PlayOneShot(switchWeaponsFork);
     }
     
+    void GoalWhistleSE()
+    {
+        audioSource.PlayOneShot(goalWhistleSE);
+    }
+
 }
