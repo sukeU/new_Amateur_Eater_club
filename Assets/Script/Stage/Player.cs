@@ -73,8 +73,6 @@ public class Player : MonoBehaviour
             Debug.Log("→→→→→→→→→→" + ((x_pos - Screen.width / 3 * 2) / Screen.width / 3 * 10) + " xVec:" + xVec);
         }
 
-
-
         //指定したスピードから現在の速度を引いて加速力を求める
         float currentSpeed = speed - rb.velocity.magnitude;
         //調整された加速力で力を加える
