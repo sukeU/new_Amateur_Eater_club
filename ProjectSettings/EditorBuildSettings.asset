@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Okura/Title.unity
     guid: 35a8add29288f854cbf6a3edead136b9
   - enabled: 1
-    path: Assets/Scenes/Stage1.unity
+    path: Assets/Scenes/testest.unity
     guid: ff9bcdcc8f653ac4b848228f0f31f7f3
   - enabled: 1
     path: Assets/Scenes/Option.unity

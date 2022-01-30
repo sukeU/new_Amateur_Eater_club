@@ -65,11 +65,14 @@ public class ParticlesManager : MonoBehaviour
     }
     public void clearParticle(int t)
     {
-        //if(怒って終了)
-        // particle[3].Play();
-        //else if(ノーマル)
-        //particle[4].Play();
-        //else ()
-        //particle[5].Play();
+
+        switch (t)//eatのスクリプトに色を受け渡す //0黒 1茶 2黄 3赤 4白 5緑
+        {
+            case 1: particle[3].Play();break;
+            case 2: particle[4].Play(); break;
+            case 3: particle[5].Play();break;
+        }
+
+      
     }
 }
