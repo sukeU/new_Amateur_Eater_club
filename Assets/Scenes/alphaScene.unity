@@ -428,12 +428,16 @@ MonoBehaviour:
   gameClearBGM: {fileID: 0}
   gameOverBGM: {fileID: 0}
   satisfactionRatingSE: {fileID: 0}
-  NormalRatingSE: {fileID: 0}
+  normalRatingSE: {fileID: 0}
   dissatisfactionRatingSE: {fileID: 0}
   trueSweetsSE: {fileID: 8300000, guid: 00cea920e6397094a907116ad57c4851, type: 3}
-  falseSweetsSE: {fileID: 8300000, guid: 26ae2cb5a3a627f45bce536d0c818baf, type: 3}
+  falseSweetsSpoonSE: {fileID: 0}
+  falseSweetsForkSE: {fileID: 0}
   switchWeaponsSpoon: {fileID: 8300000, guid: 227e99579e7a9454788dbd020c67bf76, type: 3}
-  switchWeaponsFolk: {fileID: 8300000, guid: 38e5d99785ee2f74da14e94d5cb2b817, type: 3}
+  switchWeaponsFork: {fileID: 0}
+  clickSE: {fileID: 0}
+  whistleSE: {fileID: 0}
+  goalWhistleSE: {fileID: 0}
 --- !u!4 &139419866
 Transform:
   m_ObjectHideFlags: 0
@@ -896,6 +900,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29fbcbb7bf991cb4292a47fe9a4ff18d, type: 3}
+--- !u!1 &188175832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 188175833}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &188175833
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188175832}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 620.27014, y: 442.44464, z: -52.323627}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &240290567
 GameObject:
   m_ObjectHideFlags: 0
@@ -2281,7 +2315,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c91e1e76e13c94987d4046913552c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 56.75
+  speed: 15
+  x_input: 1
   Movespeed: 0
   ItemCount: 0
   best_text: {fileID: 316367804}
@@ -2333,6 +2368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   decreaseSatiety: 1
+  discreRatio: 0.5
 --- !u!114 &1521469331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2473,7 +2509,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c706056283012243b80db091010784e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test1: 0
 --- !u!1 &1597738969
 GameObject:
   m_ObjectHideFlags: 0
