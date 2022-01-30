@@ -14,11 +14,6 @@ public class Player : MonoBehaviour
     Animator animator;
     GameObject myObj;
 
-<<<<<<< HEAD:Assets/Script/Player.cs
-    AudioClip goalClip;
-    AudioSource GoalSE;
-=======
->>>>>>> 55e82b2da2c3fc2493fbec0eb693aa68a64333bc:Assets/Script/Stage/Player.cs
 
     //ゲームが終わってるか終わってないか
     bool gameMasFinishBool;
@@ -36,12 +31,6 @@ public class Player : MonoBehaviour
         animator = this.gameObject.GetComponent<Animator>();
         gameMasFinishBool = GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish;
 
-<<<<<<< HEAD:Assets/Script/Player.cs
-        goalClip = GameObject.Find("GameMaster").GetComponent<AdjustmentValue>().gameClearBGM;
-        GoalSE.clip = goalClip;
-
-=======
->>>>>>> 55e82b2da2c3fc2493fbec0eb693aa68a64333bc:Assets/Script/Stage/Player.cs
         myObj = GameObject.Find("Player").gameObject;
 
         //best_text.SetActive(false);
