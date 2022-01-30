@@ -9,6 +9,6 @@ public class return_title : MonoBehaviour
     // Start is called before the first frame update
     public void OnRetry()
     {
-        SceneManager.LoadScene("title");
+        SceneManager.LoadScene("Title");
     }
 }
