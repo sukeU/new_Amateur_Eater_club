@@ -33,9 +33,9 @@ public class Player : MonoBehaviour
 
         myObj = GameObject.Find("Player").gameObject;
 
-        //best_text.SetActive(false);
-        //gg_text.SetActive(false);
-        //w_text.SetActive(false);
+        best_text.SetActive(false);
+        gg_text.SetActive(false);
+        w_text.SetActive(false);
     }
 
     void Update()
@@ -88,15 +88,11 @@ public class Player : MonoBehaviour
         {
 
             //Result画像表示
-            //if (ItemCount >= 21) best_text.SetActive(true);
-            //if ((ItemCount >= 12) && (ItemCount < 21)) gg_text.SetActive(true);
-            //if ((ItemCount >= 0) && (ItemCount < 12)) w_text.SetActive(true);
+            if (ItemCount >= 21) best_text.SetActive(true);
+            if ((ItemCount >= 12) && (ItemCount < 21)) gg_text.SetActive(true);
+            if ((ItemCount >= 0) && (ItemCount < 12)) w_text.SetActive(true);
+            GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish = true;
 
-            //PlayerのRigidbodyを停止
-            rb.constraints = RigidbodyConstraints.FreezePositionX |
-                             RigidbodyConstraints.FreezePositionZ |
-                             RigidbodyConstraints.FreezeRotationY |
-                             RigidbodyConstraints.FreezeRotationZ;
 
             myObj.SendMessage("GoalWhistleSE");
             //ゴールアニメーション再生
@@ -105,8 +101,6 @@ public class Player : MonoBehaviour
 
             rb.constraints = RigidbodyConstraints.FreezePosition;
             
-            
-
         }
 
         if (other.tag == ("Item"))

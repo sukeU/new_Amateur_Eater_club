@@ -48,7 +48,7 @@ public class EatPlayer : MonoBehaviour
         //空腹になったらゲームオーバー
         if (satietyVal < 0)
         {
-            gameMas.SendMessage("NonSatietyGameOver");
+            satietyVal=0;
         }
         //値越え防止
         if (satietyVal > adjValScr.maxSatiety) satietyVal = adjValScr.maxSatiety;
