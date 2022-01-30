@@ -14,13 +14,6 @@ public class Player : MonoBehaviour
     Animator animator;
     GameObject myObj;
 
-
-
-    AudioClip goalClip;
-    AudioSource GoalSE;
-
-
-
     //ゲームが終わってるか終わってないか
     bool gameMasFinishBool;
     private Rigidbody rb;
@@ -38,9 +31,6 @@ public class Player : MonoBehaviour
         animator = this.gameObject.GetComponent<Animator>();
         gameMasFinishBool = GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish;
 
-
-        goalClip = GameObject.Find("GameMaster").GetComponent<AdjustmentValue>().gameClearBGM;
-        GoalSE.clip = goalClip;
 
         Satietyval = this.gameObject.GetComponent<EatPlayer>().satietyVal ;
 
@@ -87,8 +77,6 @@ public class Player : MonoBehaviour
             Debug.Log("→→→→→→→→→→" + ((x_pos - Screen.width / 3 * 2) / Screen.width / 3 * 10) + " xVec:" + xVec);
         }
 
-
-
         //指定したスピードから現在の速度を引いて加速力を求める
         float currentSpeed = speed - rb.velocity.magnitude;
         //調整された加速力で力を加える
@@ -110,8 +98,8 @@ public class Player : MonoBehaviour
 
             //ゲーム終了のフラグを各所に建てる
             GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish = true;
-            myObj.GetComponent<EatPlayer>().eatPlayer_gameFinish = true;
-            myObj.GetComponent<ChangeSpoonOrFork>().gameFinish = true;
+            this.GetComponent<EatPlayer>().eatPlayer_gameFinish = true;
+            this.GetComponent<ChangeSpoonOrFork>().gameFinish = true;
 
             myObj.SendMessage("GoalWhistleSE");
             //ゴールアニメーション再生
