@@ -13,6 +13,7 @@ public class EatPlayer : MonoBehaviour
     float decreaseSatietyTimeVal = 0.0f;//減少の時間をカウント
     public int decreaseSatiety = 1;     //体力減少値
     public bool eatBool = true;         //食べているかの計算
+    public bool eatPlayer_gameFinish = false;
     GameObject gameMas;
     GameObject myObj;   //自身のオブジェクト
 
@@ -48,12 +49,13 @@ public class EatPlayer : MonoBehaviour
         //空腹になったらゲームオーバー
         if (satietyVal < 0)
         {
-            gameMas.SendMessage("NonSatietyGameOver");
+            satietyVal=0;
         }
         //値越え防止
         if (satietyVal > adjValScr.maxSatiety) satietyVal = adjValScr.maxSatiety;
 
         slider.value = satietyVal;
+        if (eatPlayer_gameFinish) return;
         if (eatBool) eatTime();
 
     }

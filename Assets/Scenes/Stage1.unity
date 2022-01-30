@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3047,7 +3047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   x_input: 2
-  Movespeed: 0
+  pauseBool: 0
   ItemCount: 0
   best_text: {fileID: 258786222}
   gg_text: {fileID: 203893523}
@@ -3098,6 +3098,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   decreaseSatiety: 1
+  eatBool: 1
+  eatPlayer_gameFinish: 0
   discreRatio: 0.5
 --- !u!114 &1521469331
 MonoBehaviour:
@@ -3111,7 +3113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a318db6f227334740aa9033270f6f093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseNow: 0
   changeNow: 0
+  gameFinish: 0
 --- !u!95 &1521469332
 Animator:
   serializedVersion: 3
@@ -3120,12 +3124,12 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521469325}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 60b39fb9fb990e44f95e623432e26b68, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -3851,6 +3855,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angry_skin: {fileID: 2800000, guid: 6093b8d0dcdf7e947b49afb2fca82ca6, type: 3}
+  normal_skin: {fileID: 2800000, guid: 4a241788b188b384b85f8d881669dd63, type: 3}
+  happy_skin: {fileID: 2800000, guid: adb4208bb93764943903a4df93033ebf, type: 3}
 --- !u!1 &1850071572
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,8 +15,10 @@ public class Player : MonoBehaviour
     GameObject myObj;
 
 
+
     AudioClip goalClip;
     AudioSource GoalSE;
+
 
 
     //ゲームが終わってるか終わってないか
@@ -41,6 +43,7 @@ public class Player : MonoBehaviour
         GoalSE.clip = goalClip;
 
         Satietyval = this.gameObject.GetComponent<EatPlayer>().satietyVal ;
+
 
         myObj = GameObject.Find("Player").gameObject;
 
@@ -99,16 +102,16 @@ public class Player : MonoBehaviour
         {
             
 
-            //Result画像表示
+
             if (Satietyval >= 100) best_text.SetActive(true);
             if ((Satietyval >= 35) && (Satietyval < 90)) gg_text.SetActive(true);
             if (Satietyval < 35) w_text.SetActive(true); 
 
-            //PlayerのRigidbodyを停止
-            rb.constraints = RigidbodyConstraints.FreezePositionX |
-                             RigidbodyConstraints.FreezePositionZ |
-                             RigidbodyConstraints.FreezeRotationY |
-                             RigidbodyConstraints.FreezeRotationZ;
+
+            //ゲーム終了のフラグを各所に建てる
+            GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish = true;
+            myObj.GetComponent<EatPlayer>().eatPlayer_gameFinish = true;
+            myObj.GetComponent<ChangeSpoonOrFork>().gameFinish = true;
 
             myObj.SendMessage("GoalWhistleSE");
             //ゴールアニメーション再生
@@ -117,8 +120,6 @@ public class Player : MonoBehaviour
 
             rb.constraints = RigidbodyConstraints.FreezePosition;
             
-            
-
         }
 
         
