@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
     public GameObject best_text;
     public GameObject gg_text;
     public GameObject w_text;
+    public GameObject m_text;
+    [SerializeField] GameObject particle;
 
     void Start()
     {
@@ -89,12 +91,12 @@ public class Player : MonoBehaviour
         if (other.tag == ("Goal"))
         {
 
-
+            m_text.SetActive(true);
             Satietyval = this.gameObject.GetComponent<EatPlayer>().satietyVal;
-            if (Satietyval >= 100) best_text.SetActive(true);
-            if ((Satietyval >= 35) && (Satietyval < 90)) gg_text.SetActive(true);
+            if (Satietyval >= 100) best_text.SetActive(true); 
+            if ((Satietyval >= 35) && (Satietyval < 90)) gg_text.SetActive(true); 
             if (Satietyval < 35) w_text.SetActive(true); 
-            
+
 
             //ゲーム終了のフラグを各所に建てる
             GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish = true;
