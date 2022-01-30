@@ -11,6 +11,7 @@ public class EatPlayer : MonoBehaviour
     float nowTime = 100.0f;             //最後に食べてからの時間
     float decreaseSatietyTimeVal = 0.0f;//減少の時間をカウント
     public int decreaseSatiety = 1;     //体力減少値
+    public bool eatBool = true;         //食べているかの計算
     GameObject gameMas;
     GameObject myObj;   //自身のオブジェクト
 
@@ -52,6 +53,12 @@ public class EatPlayer : MonoBehaviour
         if (satietyVal > adjValScr.maxSatiety) satietyVal = adjValScr.maxSatiety;
 
         slider.value = satietyVal;
+        if (eatBool) eatTime();
+
+    }
+
+    void eatTime()
+    {
         nowTime -= Time.deltaTime;
         //食べてから指定時間がたった時
         if (nowTime < 0)
