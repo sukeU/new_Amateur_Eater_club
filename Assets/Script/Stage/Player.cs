@@ -21,9 +21,7 @@ public class Player : MonoBehaviour
     private int ItemCount;
     private int Satietyval;
 
-    public GameObject best_text;
-    public GameObject gg_text;
-    public GameObject w_text;
+    
 
     void Start()
     {
@@ -37,9 +35,7 @@ public class Player : MonoBehaviour
 
         myObj = GameObject.Find("Player").gameObject;
 
-        best_text.SetActive(false);
-        gg_text.SetActive(false);
-        w_text.SetActive(false);
+        
     }
 
     void Update()
@@ -67,14 +63,14 @@ public class Player : MonoBehaviour
             float pom = x_pos / (Screen.width / 5 * 2) - 1; //X領域の割合を計算、100％で掛ける
             if (pom <= -1.0f) pom = -1.0f;    //100%を超えたら1に固定
             xVec = x_input * pom;           //入力するベクトルに割合をかける
-            Debug.Log("←←←←←←←" + (x_pos / (Screen.width / 3) - 1) + "  xVec:" + xVec);
+            //Debug.Log("←←←←←←←" + (x_pos / (Screen.width / 3) - 1) + "  xVec:" + xVec);
         }
         else if (x_pos >= Screen.width / 5 * 3)
         {
             float pom = (x_pos - Screen.width / 5 * 3) / Screen.width / 5 * 10 - 0.1f;
             if (pom >= 1.0f) pom = 1.0f;//100%を超えたら
             xVec = x_input * pom;
-            Debug.Log("→→→→→→→→→→" + ((x_pos - Screen.width / 3 * 2) / Screen.width / 3 * 10) + " xVec:" + xVec);
+            //Debug.Log("→→→→→→→→→→" + ((x_pos - Screen.width / 3 * 2) / Screen.width / 3 * 10) + " xVec:" + xVec);
         }
 
         //指定したスピードから現在の速度を引いて加速力を求める
@@ -88,13 +84,8 @@ public class Player : MonoBehaviour
     {
         if (other.tag == ("Goal"))
         {
-
-
             Satietyval = this.gameObject.GetComponent<EatPlayer>().satietyVal;
-            if (Satietyval >= 100) best_text.SetActive(true);
-            if ((Satietyval >= 35) && (Satietyval < 90)) gg_text.SetActive(true);
-            if (Satietyval < 35) w_text.SetActive(true); 
-            
+            GameObject.Find("Canvas").GetComponent<StageUI>().SendMessage("StageGoalUI",Satietyval);
 
             //ゲーム終了のフラグを各所に建てる
             GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish = true;

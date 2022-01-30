@@ -7,9 +7,19 @@ public class StageUI : MonoBehaviour
 {
     public GameObject UIObj;
 
+    public GameObject best_text;
+    public GameObject gg_text;
+    public GameObject w_text;
+    public GameObject endMenuButton;
+    public GameObject endRetryButton;
+
     private void Start()
     {
-        
+        best_text.SetActive(false);
+        gg_text.SetActive(false);
+        w_text.SetActive(false);
+        endMenuButton.SetActive(false);
+        endRetryButton.SetActive(false);
     }
 
     private void Update()
@@ -41,6 +51,20 @@ public class StageUI : MonoBehaviour
 
     }
 
+    //ゲーム終了時に呼び出される関数
+    public void StageGoalUI(int Satietyval)
+    {
+        
+        if (Satietyval >= 100) best_text.SetActive(true);
+        if ((Satietyval >= 35) && (Satietyval < 90)) gg_text.SetActive(true);
+        if (Satietyval < 35) w_text.SetActive(true);
+        
+        endMenuButton.SetActive(true);
+        endRetryButton.SetActive(true);
+
+
+    }
+
     public void ContinueStage()
     {
         GameObject player = GameObject.Find("Player");
@@ -53,6 +77,11 @@ public class StageUI : MonoBehaviour
     public void MoveSceneMenu()
     {
         SceneManager.LoadScene("Title");
+    }
+
+    public void MoveSceneRetry()
+    {
+        SceneManager.LoadScene("Stage1");
     }
 
 
