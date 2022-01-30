@@ -7,7 +7,11 @@ TagManager:
   - Spoon
   - Fork
   - Goal
+<<<<<<< HEAD
+  - Item
+=======
   - Fade
+>>>>>>> 30f16e8add0c0d3f4fa31daee1c5cc22dd9a7f75
   layers:
   - Default
   - TransparentFX
