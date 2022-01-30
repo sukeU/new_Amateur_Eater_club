@@ -107,8 +107,6 @@ public class Player : MonoBehaviour
 
             rb.constraints = RigidbodyConstraints.FreezePosition;
             
-            //ゴールアニメーション再生
-            animator.SetTrigger("Goal");
             myObj.SendMessage("SW_Weapons_Spoon");
 
         }
