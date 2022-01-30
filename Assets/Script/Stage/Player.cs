@@ -14,17 +14,17 @@ public class Player : MonoBehaviour
     Animator animator;
     GameObject myObj;
 
-<<<<<<< HEAD:Assets/Script/Player.cs
+
     AudioClip goalClip;
     AudioSource GoalSE;
-=======
->>>>>>> 55e82b2da2c3fc2493fbec0eb693aa68a64333bc:Assets/Script/Stage/Player.cs
+
 
     //ゲームが終わってるか終わってないか
     bool gameMasFinishBool;
     private Rigidbody rb;
 
-    public int ItemCount;
+    private int ItemCount;
+    private int Satietyval;
 
     public GameObject best_text;
     public GameObject gg_text;
@@ -36,17 +36,17 @@ public class Player : MonoBehaviour
         animator = this.gameObject.GetComponent<Animator>();
         gameMasFinishBool = GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish;
 
-<<<<<<< HEAD:Assets/Script/Player.cs
+
         goalClip = GameObject.Find("GameMaster").GetComponent<AdjustmentValue>().gameClearBGM;
         GoalSE.clip = goalClip;
 
-=======
->>>>>>> 55e82b2da2c3fc2493fbec0eb693aa68a64333bc:Assets/Script/Stage/Player.cs
+        Satietyval = this.gameObject.GetComponent<EatPlayer>().satietyVal ;
+
         myObj = GameObject.Find("Player").gameObject;
 
-        //best_text.SetActive(false);
-        //gg_text.SetActive(false);
-        //w_text.SetActive(false);
+        best_text.SetActive(false);
+        gg_text.SetActive(false);
+        w_text.SetActive(false);
     }
 
     void Update()
@@ -97,11 +97,12 @@ public class Player : MonoBehaviour
     {
         if (other.tag == ("Goal"))
         {
+            
 
             //Result画像表示
-            //if (ItemCount >= 21) best_text.SetActive(true);
-            //if ((ItemCount >= 12) && (ItemCount < 21)) gg_text.SetActive(true);
-            //if ((ItemCount >= 0) && (ItemCount < 12)) w_text.SetActive(true);
+            if (Satietyval >= 100) best_text.SetActive(true);
+            if ((Satietyval >= 35) && (Satietyval < 90)) gg_text.SetActive(true);
+            if (Satietyval < 35) w_text.SetActive(true); 
 
             //PlayerのRigidbodyを停止
             rb.constraints = RigidbodyConstraints.FreezePositionX |
@@ -120,10 +121,7 @@ public class Player : MonoBehaviour
 
         }
 
-        if (other.tag == ("Item"))
-        {
-            ItemCount++;
-        }
+        
        
     }
    
