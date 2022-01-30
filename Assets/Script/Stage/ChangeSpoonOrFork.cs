@@ -41,7 +41,7 @@ public class ChangeSpoonOrFork : MonoBehaviour
                 changeNow = true;
                 return;
             }
-        }
+        } 
     }
 
     //アニメーション側でfalseにする。

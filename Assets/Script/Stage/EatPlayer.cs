@@ -38,7 +38,7 @@ public class EatPlayer : MonoBehaviour
         satietyVal = adjValScr.startSatiety;
         delayDecreaseSatietyTime = adjValScr.delayDecreaseSatietyTime;
 
-        slider = GameObject.Find("Canvas/SatietySlider").GetComponent<Slider>();    //スライダーを取得
+        slider = GameObject.Find("Canvas/HP/SatietySlider").GetComponent<Slider>();    //スライダーを取得
         slider.maxValue = adjValScr.maxSatiety; //スライダーの初期値設定
 
         
