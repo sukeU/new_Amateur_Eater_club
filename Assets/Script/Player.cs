@@ -59,19 +59,19 @@ public class Player : MonoBehaviour
         float x_pos = Input.mousePosition.x;
         float xVec = 0.0f;
         
-        if (x_pos <= Screen.width / 3)
+        if (x_pos <= Screen.width / 5 * 2) 
         {
-            float pom = x_pos / (Screen.width / 3) - 1; //X領域の割合を計算、100％で掛ける
+            float pom = x_pos / (Screen.width / 5*2) - 1; //X領域の割合を計算、100％で掛ける
             if (pom <= -1.0f) pom = -1.0f;    //100%を超えたら1に固定
             xVec = x_input * pom;           //入力するベクトルに割合をかける
-            //Debug.Log("←←←←←←←"+(x_pos/(Screen.width / 3)-1)+"  xVec:"+xVec);
+            Debug.Log("←←←←←←←"+(x_pos/(Screen.width / 3)-1)+"  xVec:"+xVec);
         }
-        else if(x_pos >= Screen.width / 3 * 2)
+        else if(x_pos >= Screen.width / 5 * 3)
         {
-            float pom = (x_pos - Screen.width / 3 * 2) / Screen.width / 3 * 10 - 0.1f;
+            float pom = (x_pos - Screen.width / 5*3) / Screen.width / 5 * 10 - 0.1f;
             if (pom >= 1.0f) pom = 1.0f;//100%を超えたら
             xVec = x_input * pom;
-            //Debug.Log("→→→→→→→→→→" + ((x_pos - Screen.width / 3 * 2) / Screen.width / 3*10) + " xVec:" + xVec);
+            Debug.Log("→→→→→→→→→→" + ((x_pos - Screen.width / 3 * 2) / Screen.width / 3*10) + " xVec:" + xVec);
         }
 
 
