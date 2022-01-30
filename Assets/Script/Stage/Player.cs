@@ -14,6 +14,13 @@ public class Player : MonoBehaviour
     Animator animator;
     GameObject myObj;
 
+
+
+    AudioClip goalClip;
+    AudioSource GoalSE;
+
+
+
     //ゲームが終わってるか終わってないか
     bool gameMasFinishBool;
     private Rigidbody rb;
@@ -31,6 +38,9 @@ public class Player : MonoBehaviour
         animator = this.gameObject.GetComponent<Animator>();
         gameMasFinishBool = GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish;
 
+
+        goalClip = GameObject.Find("GameMaster").GetComponent<AdjustmentValue>().gameClearBGM;
+        GoalSE.clip = goalClip;
 
         Satietyval = this.gameObject.GetComponent<EatPlayer>().satietyVal ;
 
@@ -98,8 +108,8 @@ public class Player : MonoBehaviour
 
             //ゲーム終了のフラグを各所に建てる
             GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish = true;
-            this.GetComponent<EatPlayer>().eatPlayer_gameFinish = true;
-            this.GetComponent<ChangeSpoonOrFork>().gameFinish = true;
+            myObj.GetComponent<EatPlayer>().eatPlayer_gameFinish = true;
+            myObj.GetComponent<ChangeSpoonOrFork>().gameFinish = true;
 
             myObj.SendMessage("GoalWhistleSE");
             //ゴールアニメーション再生
