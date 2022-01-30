@@ -8,14 +8,18 @@ public class ChangeSkin : MonoBehaviour
     Texture angry_skin;//35以下
     Texture normal_skin;
     Texture happy_skin;//80以上
-    GameObject skin_obj;
+    GameObject[] skin_obj;
     EatPlayer eatplay;
 
     // Start is called before the first frame update
     void Start()
     {
-        skin_obj = gameObject.transform.GetChild(0).gameObject;
-        eatplay = skin_obj.GetComponent<EatPlayer>();
+        for(int i = 0; i < gameObject.transform.childCount; i++)
+        {
+            skin_obj[i] = gameObject.transform.GetChild(i).gameObject;
+        }
+        
+        eatplay = skin_obj[0].GetComponent<EatPlayer>();
     }
 
     // Update is called once per frame
@@ -26,11 +30,24 @@ public class ChangeSkin : MonoBehaviour
 
     void ClearChange()
     {
+        if (eatplay.nowPoint < 35) {
+            SkinChange(angry_skin);
+        }
+        else if(eatplay.nowPoint >=80)
+        {
+            SkinChange(happy_skin);
+        }
+        else
+        {
+            SkinChange(normal_skin);
+        }
         //SkinChange(normal_skin)
     }
 
     void SkinChange(Texture skin)
     {
-        skin_obj.GetComponent<Renderer>().material.mainTexture = skin; 
+        foreach (GameObject obj in  skin_obj) {
+           obj.GetComponent<Renderer>().material.mainTexture = skin;
+        }
     }
 }
