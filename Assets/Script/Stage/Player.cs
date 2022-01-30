@@ -14,8 +14,6 @@ public class Player : MonoBehaviour
     Animator animator;
     GameObject myObj;
 
-    AudioClip SE;
-    AudioSource GoalSE;
 
     //ゲームが終わってるか終わってないか
     bool gameMasFinishBool;
@@ -33,14 +31,11 @@ public class Player : MonoBehaviour
         animator = this.gameObject.GetComponent<Animator>();
         gameMasFinishBool = GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish;
 
-        SE = GameObject.Find("GameMaster").GetComponent<AdjustmentValue>().gameClearBGM;
-        GoalSE.clip = SE;
-
         myObj = GameObject.Find("Player").gameObject;
 
-        best_text.SetActive(false);
-        gg_text.SetActive(false);
-        w_text.SetActive(false);
+        //best_text.SetActive(false);
+        //gg_text.SetActive(false);
+        //w_text.SetActive(false);
     }
 
     void Update()
@@ -93,24 +88,24 @@ public class Player : MonoBehaviour
         {
 
             //Result画像表示
-            if (ItemCount >= 21) best_text.SetActive(true);
-            if ((ItemCount >= 12) && (ItemCount < 21)) gg_text.SetActive(true);
-            if ((ItemCount >= 0) && (ItemCount < 12)) w_text.SetActive(true);
+            //if (ItemCount >= 21) best_text.SetActive(true);
+            //if ((ItemCount >= 12) && (ItemCount < 21)) gg_text.SetActive(true);
+            //if ((ItemCount >= 0) && (ItemCount < 12)) w_text.SetActive(true);
 
             //PlayerのRigidbodyを停止
             rb.constraints = RigidbodyConstraints.FreezePositionX |
                              RigidbodyConstraints.FreezePositionZ |
                              RigidbodyConstraints.FreezeRotationY |
                              RigidbodyConstraints.FreezeRotationZ;
-            
+
+            myObj.SendMessage("GoalWhistleSE");
             //ゴールアニメーション再生
             animator.SetTrigger("Goal");
 
-            GoalSE.Play();
 
             rb.constraints = RigidbodyConstraints.FreezePosition;
             
-            myObj.SendMessage("SW_Weapons_Spoon");
+            
 
         }
 
