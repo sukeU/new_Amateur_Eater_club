@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
             animator.SetTrigger("Goal");
 
 
-            rb.constraints = RigidbodyConstraints.FreezePosition;
+            //rb.constraints = RigidbodyConstraints.FreezePosition;
             
         }
 

@@ -35,8 +35,13 @@ public class Button: MonoBehaviour
 
     void ExitClick()
     {
+        #if UNITY_EDITOR
+
         //ゲームをやめる
         UnityEditor.EditorApplication.isPlaying = false;
+        #elif UNITY_STANDALONE
+                UnityEngine.Application.Quit();
+        #endif
         UnityEngine.Application.Quit();
     }
 
