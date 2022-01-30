@@ -3013,6 +3013,7 @@ GameObject:
   - component: {fileID: 1521469332}
   - component: {fileID: 1521469333}
   - component: {fileID: 1521469334}
+  - component: {fileID: 1521469335}
   m_Layer: 0
   m_Name: Player
   m_TagString: Spoon
@@ -3244,6 +3245,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c706056283012243b80db091010784e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1521469335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521469325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f60eee84e25e7384989c7f119fbb7e0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angry_skin: {fileID: 2800000, guid: 6093b8d0dcdf7e947b49afb2fca82ca6, type: 3}
+  normal_skin: {fileID: 2800000, guid: 4a241788b188b384b85f8d881669dd63, type: 3}
+  happy_skin: {fileID: 2800000, guid: adb4208bb93764943903a4df93033ebf, type: 3}
 --- !u!1001 &1549358236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3830,33 +3846,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1763804274}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1796869336 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 29fbcbb7bf991cb4292a47fe9a4ff18d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1897179633}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1796869337 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 29fbcbb7bf991cb4292a47fe9a4ff18d,
     type: 3}
   m_PrefabInstance: {fileID: 1897179633}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1796869338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1796869336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f60eee84e25e7384989c7f119fbb7e0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  angry_skin: {fileID: 2800000, guid: 6093b8d0dcdf7e947b49afb2fca82ca6, type: 3}
-  normal_skin: {fileID: 2800000, guid: 4a241788b188b384b85f8d881669dd63, type: 3}
-  happy_skin: {fileID: 2800000, guid: adb4208bb93764943903a4df93033ebf, type: 3}
 --- !u!1 &1850071572
 GameObject:
   m_ObjectHideFlags: 0
