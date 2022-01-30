@@ -15,8 +15,6 @@ public class PlayerSound : MonoBehaviour
     AudioClip switchWeaponsSpoon;
     AudioClip switchWeaponsFork;
 
-    public float test1 = 0.0f;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +28,6 @@ public class PlayerSound : MonoBehaviour
         falseSweetsSpoonSE = adjValScr.falseSweetsSpoonSE;
         switchWeaponsSpoon = adjValScr.switchWeaponsSpoon;
         switchWeaponsFork = adjValScr.switchWeaponsFork;
-        test1 = switchWeaponsSpoon.length;
     }
 
     // Update is called once per frame
