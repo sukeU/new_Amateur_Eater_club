@@ -24,12 +24,6 @@ public class ChangeSkin : MonoBehaviour
         eatplay = skin_obj[0].GetComponent<EatPlayer>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        SkinChange(happy_skin);
-    }
-
     void ClearChange()
     {
         if (eatplay.nowPoint < 35) {
