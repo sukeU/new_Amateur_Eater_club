@@ -88,19 +88,19 @@ public class Player : MonoBehaviour
     {
         if (other.tag == ("Goal"))
         {
-            
 
 
+            Satietyval = this.gameObject.GetComponent<EatPlayer>().satietyVal;
             if (Satietyval >= 100) best_text.SetActive(true);
             if ((Satietyval >= 35) && (Satietyval < 90)) gg_text.SetActive(true);
             if (Satietyval < 35) w_text.SetActive(true); 
-
+            
 
             //ゲーム終了のフラグを各所に建てる
             GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish = true;
             this.GetComponent<EatPlayer>().eatPlayer_gameFinish = true;
             this.GetComponent<ChangeSpoonOrFork>().gameFinish = true;
-
+            myObj.SendMessage("ClearChange", Satietyval);
             myObj.SendMessage("GoalWhistleSE");
             //ゴールアニメーション再生
             animator.SetTrigger("Goal");

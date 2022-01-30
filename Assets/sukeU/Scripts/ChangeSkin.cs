@@ -26,12 +26,12 @@ public class ChangeSkin : MonoBehaviour
         eatplay = skin_obj[0].GetComponent<EatPlayer>();
     }
 
-    void ClearChange()
+    void ClearChange(int point)
     {
-        if (eatplay.nowPoint < 35) {
+        if (point < 35) {
             SkinChange(angry_skin);
         }
-        else if(eatplay.nowPoint >=80)
+        else if(point >=80)
         {
             SkinChange(happy_skin);
         }
