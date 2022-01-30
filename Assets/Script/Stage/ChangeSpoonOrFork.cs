@@ -6,6 +6,7 @@ public class ChangeSpoonOrFork : MonoBehaviour
 {
     public bool pauseNow = false;
     public bool changeNow = false;
+    public bool gameFinish = false;
     string spoon = "Spoon";
     string fork = "Fork";
     Animator anim;
@@ -20,7 +21,7 @@ public class ChangeSpoonOrFork : MonoBehaviour
     void Update()
     {
         //チェンジアニメーション中なら入力無視
-        if (changeNow || pauseNow) return;
+        if (changeNow || pauseNow || gameFinish) return;
 
         if (Input.GetMouseButtonDown(0))
         {

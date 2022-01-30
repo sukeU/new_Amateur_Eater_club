@@ -91,8 +91,11 @@ public class Player : MonoBehaviour
             if (ItemCount >= 21) best_text.SetActive(true);
             if ((ItemCount >= 12) && (ItemCount < 21)) gg_text.SetActive(true);
             if ((ItemCount >= 0) && (ItemCount < 12)) w_text.SetActive(true);
-            GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish = true;
 
+            //ゲーム終了のフラグを各所に建てる
+            GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish = true;
+            myObj.GetComponent<EatPlayer>().eatPlayer_gameFinish = true;
+            myObj.GetComponent<ChangeSpoonOrFork>().gameFinish = true;
 
             myObj.SendMessage("GoalWhistleSE");
             //ゴールアニメーション再生
