@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class EatPlayer : MonoBehaviour
 {
     //満腹値
-    int satietyVal;
+    public int satietyVal;
     public int nowPoint { get { return satietyVal; } }
     float delayDecreaseSatietyTime;     //体力自然減少初期値
     float nowTime = 100.0f;             //最後に食べてからの時間

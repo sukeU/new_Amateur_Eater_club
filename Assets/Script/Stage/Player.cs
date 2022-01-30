@@ -15,11 +15,18 @@ public class Player : MonoBehaviour
     GameObject myObj;
 
 
+
+    AudioClip goalClip;
+    AudioSource GoalSE;
+
+
+
     //ゲームが終わってるか終わってないか
     bool gameMasFinishBool;
     private Rigidbody rb;
 
-    public int ItemCount;
+    private int ItemCount;
+    private int Satietyval;
 
     public GameObject best_text;
     public GameObject gg_text;
@@ -30,6 +37,13 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         animator = this.gameObject.GetComponent<Animator>();
         gameMasFinishBool = GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish;
+
+
+        goalClip = GameObject.Find("GameMaster").GetComponent<AdjustmentValue>().gameClearBGM;
+        GoalSE.clip = goalClip;
+
+        Satietyval = this.gameObject.GetComponent<EatPlayer>().satietyVal ;
+
 
         myObj = GameObject.Find("Player").gameObject;
 
@@ -84,11 +98,13 @@ public class Player : MonoBehaviour
     {
         if (other.tag == ("Goal"))
         {
+            
 
-            //Result画像表示
-            if (ItemCount >= 21) best_text.SetActive(true);
-            if ((ItemCount >= 12) && (ItemCount < 21)) gg_text.SetActive(true);
-            if ((ItemCount >= 0) && (ItemCount < 12)) w_text.SetActive(true);
+
+            if (Satietyval >= 100) best_text.SetActive(true);
+            if ((Satietyval >= 35) && (Satietyval < 90)) gg_text.SetActive(true);
+            if (Satietyval < 35) w_text.SetActive(true); 
+
 
             //ゲーム終了のフラグを各所に建てる
             GameObject.Find("GameMaster").GetComponent<GameMaster>().gameFinish = true;
@@ -104,10 +120,7 @@ public class Player : MonoBehaviour
             
         }
 
-        if (other.tag == ("Item"))
-        {
-            ItemCount++;
-        }
+        
        
     }
    
