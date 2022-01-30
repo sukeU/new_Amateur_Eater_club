@@ -1112,7 +1112,6 @@ GameObject:
   - component: {fileID: 452763916}
   - component: {fileID: 452763915}
   - component: {fileID: 452763914}
-  - component: {fileID: 452763918}
   m_Layer: 0
   m_Name: Goal
   m_TagString: Goal
@@ -1188,28 +1187,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452763913}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.41999996, y: 0.34, z: 37.75}
-  m_LocalScale: {x: 20, y: 1, z: 1}
+  m_LocalPosition: {x: 0.41999996, y: 0.99, z: 37.75}
+  m_LocalScale: {x: 20, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &452763918
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 452763913}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 3
 --- !u!1001 &483566076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2168,7 +2151,6 @@ MonoBehaviour:
   speed: 15
   x_input: 1
   pauseBool: 0
-  ItemCount: 0
   best_text: {fileID: 316367804}
   gg_text: {fileID: 1108704475}
   w_text: {fileID: 1698335774}
@@ -2217,8 +2199,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7fc83a5a4c0e0428e841379a3c15f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  satietyVal: 0
   decreaseSatiety: 1
   eatBool: 1
+  eatPlayer_gameFinish: 0
   discreRatio: 0.5
 --- !u!114 &1521469331
 MonoBehaviour:
@@ -2234,6 +2218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseNow: 0
   changeNow: 0
+  gameFinish: 0
 --- !u!95 &1521469332
 Animator:
   serializedVersion: 3
@@ -3015,6 +3000,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 141891440}
     m_Modifications:
+    - target: {fileID: 4349199501715636787, guid: b31d3791d72fdaf448b9ab48f25539bf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4349199502036198026, guid: b31d3791d72fdaf448b9ab48f25539bf,
         type: 3}
       propertyPath: m_Pivot.x
